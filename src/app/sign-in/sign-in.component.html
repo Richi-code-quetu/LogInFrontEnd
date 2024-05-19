@@ -1,0 +1,23 @@
+<h3>Registrarse</h3>
+<div class="form">
+  <form [formGroup]="signInForm">
+    <label for="">Correo</label><br>
+    <div class="input">
+      <input class="form-control" type="email" formControlName="email" />
+      <div class="form-text" *ngIf="signInForm.controls['email'].hasError('required') && signInForm.controls['email'].touched">
+        Requerido</div>
+    </div><br>
+
+    <label for="">Contraseña</label><br>
+    <div class="input">
+      <input class="form-control" type="password" formControlName="password" />
+      <div class="form-text" *ngIf="signInForm.controls['password'].hasError('required') && signInForm.controls['password'].touched">
+        Requerido</div>
+    </div>
+
+    <button type="button" (click)="collectUserData(signInForm.value)" class="btn btn-primary">Ingresar</button>
+    <button type="button" class="btn btn-danger" routerLink="/">Cancelar</button>
+  </form>
+  <p class="text-primary">¿Aún no tienes una cuenta?</p>
+  <button type="button" class="btn btn-success" routerLink="/sign-up">Regístrate</button>
+</div>
