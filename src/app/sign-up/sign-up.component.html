@@ -4,29 +4,29 @@
     <label for="">Nombre</label><br>
     <div class="input">
       <input class="form-control" type="text" formControlName="name" />
-      <div class="form-text" *ngIf="signUpForm.controls['name'].hasError('required') && signUpForm.controls['name'].touched">
+      <div class="text-danger" *ngIf="signUpForm.controls['name'].hasError('required') && signUpForm.controls['name'].touched">
         Requerido</div>
     </div><br>
 
     <label for="">Correo</label><br>
     <div class="input">
       <input class="form-control" type="email" formControlName="email" />
-      <div class="form-text" *ngIf="signUpForm.controls['email'].hasError('required') && signUpForm.controls['email'].touched">
+      <div class="text-danger" *ngIf="signUpForm.controls['email'].hasError('required') && signUpForm.controls['email'].touched">
         Requerido</div>
     </div><br>
 
     <label for="">Contraseña</label><br>
     <div class="input">
       <input class="form-control" type="password" formControlName="password" />
-      <div class="form-text" *ngIf="signUpForm.controls['password'].hasError('required') && signUpForm.controls['password'].touched">
+      <div class="text-danger" *ngIf="signUpForm.controls['password'].hasError('required') && signUpForm.controls['password'].touched">
         Requerido</div>
     </div><br>
 
     <label for="">Confirmar contraseña</label><br>
     <div class="input">
       <input class="form-control" type="password" formControlName="repeatPassword" />
-      <div class="form-text" *ngIf="signUpForm.controls['repeatPassword'].hasError('required') && signUpForm.controls['repeatPassword'].touched">
-        Requerido</div>
+      <div class="text-danger" *ngIf="signUpForm.controls['repeatPassword'].hasError('required') && signUpForm.controls['repeatPassword'].touched">
+        Requerido</div><br>
     </div><br>
 
     <button type="button" (click)="registerUser(signUpForm.value)" class="btn btn-success">Registrarse</button>

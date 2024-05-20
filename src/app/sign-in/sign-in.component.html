@@ -1,18 +1,18 @@
 <h3>Ingresar</h3>
 <div class="form">
   <form [formGroup]="signInForm">
-    <label for="">Correo</label><br>
+    <label class="lead">Correo</label><br>
     <div class="input">
       <input class="form-control" type="email" formControlName="email" />
-      <div class="form-text" *ngIf="signInForm.controls['email'].hasError('required') && signInForm.controls['email'].touched">
+      <div class="text-danger" *ngIf="signInForm.controls['email'].hasError('required') && signInForm.controls['email'].touched">
         Requerido</div>
     </div><br>
 
-    <label for="">Contraseña</label><br>
+    <label class="lead">Contraseña</label><br>
     <div class="input">
       <input class="form-control" type="password" formControlName="password" />
-      <div class="form-text" *ngIf="signInForm.controls['password'].hasError('required') && signInForm.controls['password'].touched">
-        Requerido</div>
+      <div class="text-danger" *ngIf="signInForm.controls['password'].hasError('required') && signInForm.controls['password'].touched">
+        Requerido</div><br>
     </div>
 
     <button type="button" (click)="collectUserData(signInForm.value)" class="btn btn-primary">Ingresar</button>

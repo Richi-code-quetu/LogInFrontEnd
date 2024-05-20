@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,7 +12,8 @@ export class SignUpComponent implements OnInit {
   signUpForm!: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private adminService: AdminService
   ) { }
 
   ngOnInit(): void {
@@ -30,5 +32,28 @@ export class SignUpComponent implements OnInit {
   registerUser(values: any){
     this.signUpForm.markAllAsTouched();
     if (this.signUpForm.invalid) return;
+
+    let payload = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      repeatPassword: values.repeatPassword
+    }
+
+    console.log(payload);
+
+    /*
+    this.adminService.postSignUp(payload).subscribe(
+      (resp) => {
+        if (resp.success){
+          this.message = "Solicitud enviada exitosamente"
+        }
+      },
+      (error) => {
+        console.error(error);
+        this.message = "¡No se ha generado la solicitud!";
+      }
+    );
+    */
   }
 }
