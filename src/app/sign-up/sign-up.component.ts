@@ -22,7 +22,7 @@ export class SignUpComponent implements OnInit {
 
   buildForms(){
     this.signUpForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      userName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
       repeatPassword: ['', Validators.required]
@@ -34,7 +34,7 @@ export class SignUpComponent implements OnInit {
     if (this.signUpForm.invalid) return;
 
     let payload = {
-      name: values.name,
+      userName: values.userName,
       email: values.email,
       password: values.password,
       repeatPassword: values.repeatPassword
